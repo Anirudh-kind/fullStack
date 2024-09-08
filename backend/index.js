@@ -6,6 +6,7 @@ import AuthRouter from './routes/auth.js'
 import HotelsRouter from './routes/hotels.js'
 import RoomsRouter from './routes/rooms.js'
 import UsersRoute from './routes/users.js'
+import ErrorHandler from './utils/error.js';
 
 const app = express();
 const port = process.env.PORT || 1000;
@@ -19,6 +20,9 @@ app.use('/api/auth', AuthRouter)
 app.use('/api/hotels', HotelsRouter)
 app.use('/api/rooms', RoomsRouter)
 app.use('/api/users', UsersRoute)
+
+//we are calling a middleware named error handler, to use middleWare we write 'use' like 'app.use'
+app.use(ErrorHandler);
 
 app.listen(port, () => {
     console.log(`server running on port: ${port}`.bgBlue);
