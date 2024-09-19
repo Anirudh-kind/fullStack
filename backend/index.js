@@ -14,7 +14,9 @@ connectDb();
 
 // middlewares
 app.use(express.json()) //middleware used to parse incoming requests with JSON payloads. When a client sends data to the server in JSON format (e.g., in the body of a POST request), this middleware processes that data and makes it available on req.body within your route handlers.
-
+// app.use('/api',async(req,res)=>{
+//     res.send({message:'hello its backend speaking' })
+// })
 // routes middleware
 app.use('/api/auth', AuthRouter)
 app.use('/api/hotels', HotelsRouter)
@@ -27,3 +29,11 @@ app.use(ErrorHandler);
 app.listen(port, () => {
     console.log(`server running on port: ${port}`.bgBlue);
 });
+
+
+// const failed = true;
+//     if (failed) {
+//         const err = new Error('fveywf'); 
+//         err.statusCode = 999;
+//         return next(err);
+//     }
